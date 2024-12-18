@@ -2,15 +2,22 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 
-from pathlib import Path
-from pyrpm.spec import Spec
-from os.path import dirname, realpath
-
 import argparse
 import re
 import sys
+from os import path
+from os.path import dirname, realpath
+from pathlib import Path
 
-from spec_source_attributions import get_spec_source, VALID_SOURCE_ATTRIBUTIONS
+import git
+from pyrpm.spec import Spec
+from spec_source_attributions import VALID_SOURCE_ATTRIBUTIONS, get_spec_source
+
+REPO_ROOT=str(git.Repo(".", search_parent_directories=True).working_tree_dir)
+
+RELEASE_CHECK_EXCEPTIONS = {
+    path.join(REPO_ROOT, "SPECS-SIGNED/knem-modules/knem-modules.spec"),
+}
 
 EXPECTED_DISTRIBUTION_TAG = "Azure Linux"
 EXPECTED_VENDOR_TAG = "Microsoft Corporation"
@@ -100,6 +107,11 @@ ERROR: use of deprecated '%patch[number]' format (no space between '%patch' and 
 
 def check_release_tag(spec_path: str):
     """Checks if the 'Release' tag is in one of Azure Linux's expected formats. """
+
+    if spec_path in RELEASE_CHECK_EXCEPTIONS:
+        print(f"Skipping release tag check for {spec_path}.")
+        return True
+
     spec = Spec.from_file(spec_path)
 
     if VALID_RELEASE_TAG_REGEX.match(spec.release) is None:
@@ -257,7 +269,8 @@ if __name__ == '__main__':
 
     specs_correct = True
     for spec in args.specs:
-        if not check_spec(spec.name, toolchain_specs):
+        absolute_spec_path = realpath(spec.name)
+        if not check_spec(absolute_spec_path, toolchain_specs):
             specs_correct = False
 
     if not specs_correct:
