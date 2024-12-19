@@ -1,0 +1,423 @@
+os:
+  additionalFiles:
+  - destination: /usr/lib/systemd/system/sshd-keygen.service
+    source: files/sshd-keygen.service
+  - destination: /etc/sudoers.d/no-password-prompt-on-sudo
+    permissions: '440'
+    source: files/no-password-prompt-on-sudo
+  - destination: /etc/default/mdsd.txt
+    permissions: '640'
+    source: files/mdsd/mdsd.txt
+  - destination: /etc/default/mdsd.xml
+    permissions: '644'
+    source: files/mdsd/mdsd.xml
+  - destination: /etc/selinux/targeted/selinux-ci.semanage
+    source: files/selinux-ci.semanage
+  - destination: /var/lib/trident/host_status.yaml
+    source: files/trident/host_status.yaml
+  - destination: /etc/trident/config.yaml
+    source: files/trident/config.yaml
+  - destination: /etc/systemd/system/etc-mount.service
+    source: files/trident/etc-mount-mic.service
+  - destination: /usr/local/bin/etc-mount.sh
+    source: files/trident/etc-mount.sh
+  - destination: /etc/systemd/network/99-dhcp-eth0.network
+    source: files/99-dhcp-eth0.network
+  - destination: /etc/verifiers/trustpolicy.json
+    permissions: '644'
+    source: files/oci/trustpolicy.json
+  - destination: /root/notation-cli/notation_1.2.0_linux_amd64.tar.gz
+    source: files/oci/notation_1.2.0_linux_amd64.tar.gz
+  - destination: /etc/systemd/system/resolv-uplink-override.service
+    permissions: '600'
+    source: files/resolv-uplink-override.service
+  - destination: /etc/cloud/cloud.cfg
+    permissions: '644'
+    source: files/cloud-init/cloud.cfg
+  - destination: /etc/cloud/cloud.cfg.d/80_azure_net_config.cfg
+    permissions: '644'
+    source: files/cloud-init/80_azure_net_config.cfg
+  - destination: /var/lib/extensions/kubernetes_v1.29.9.raw
+    permissions: '644'
+    source: ../../sysexts/kubernetes/mkosi.output/kubernetes_v1.29.9.raw
+  - destination: /opt/azure/containers/provision.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cse_main.sh
+  - destination: /opt/azure/containers/provision_start.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cse_start.sh
+  - destination: /opt/azure/containers/provision_configs.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cse_config.sh
+  - destination: /opt/azure/containers/provision_source.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cse_helpers.sh
+  - destination: /opt/azure/containers/provision_installs.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cse_install.sh
+  - destination: /opt/azure/containers/provision_installs_distro.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/mariner/cse_install_mariner.sh
+  - destination: /etc/systemd/system/containerd.service.d/exec_start.conf
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/containerd_exec_start.conf
+  - destination: /etc/systemd/system/kubelet.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/kubelet.service
+  - destination: /opt/azure/containers/kubelet.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/block_wireserver.sh
+  - destination: /opt/azure/containers/ensure_imds_restriction.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ensure_imds_restriction.sh
+  - destination: /opt/azure/containers/provision_redact_cloud_config.py
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cse_redact_cloud_config.py
+  - destination: /opt/azure/containers/provision_send_logs.py
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cse_send_logs.py
+  - destination: /etc/systemd/system/reconcile-private-hosts.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/reconcile-private-hosts.service
+  - destination: /opt/azure/containers/reconcilePrivateHosts.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/reconcile-private-hosts.sh
+  - destination: /opt/azure/containers/bind-mount.sh
+    permissions: '544'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/bind-mount.sh
+  - destination: /etc/systemd/system/bind-mount.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/bind-mount.service
+  - destination: /opt/azure/containers/enable-dhcpv6.sh
+    permissions: '544'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/enable-dhcpv6.sh
+  - destination: /etc/systemd/system/dhcpv6.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/dhcpv6.service
+  - destination: /opt/azure/containers/sync-container-logs.sh
+    permissions: '544'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/sync-container-logs.sh
+  - destination: /etc/systemd/system/sync-container-logs.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/sync-container-logs.service
+  - destination: /etc/crictl.yaml
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/crictl.yaml
+  - destination: /opt/azure/containers/ensure-no-dup.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ensure-no-dup.sh
+  - destination: /etc/systemd/system/ensure-no-dup.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ensure-no-dup.service
+  - destination: /etc/sysctl.d/60-CIS.conf
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/sysctl-d-60-CIS.conf
+  - destination: /etc/ssh/sshd_config
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/sshd_config
+  - destination: /etc/rsyslog.d/60-CIS.conf
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/rsyslog-d-60-CIS.conf
+  - destination: /etc/logrotate.d/rsyslog-cis.conf
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/logrotate-d-rsyslog-CIS.conf
+  - destination: /etc/modprobe.d/CIS.conf
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/modprobe-CIS.conf
+  - destination: /etc/security/pwquality.conf
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/pwquality-CIS.conf
+  - destination: /etc/pam.d/su
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/pam-d-su
+  - destination: /etc/pam.d/system-auth
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/mariner/pam-d-system-auth
+  - destination: /etc/pam.d/system-password
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/mariner/pam-d-system-password
+  - destination: /etc/profile.d/CIS.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/profile-d-cis.sh
+  - destination: /etc/systemd/system/disk_queue.service
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/disk_queue.service
+  - destination: /opt/scripts/cgroup-memory-telemetry.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cgroup-memory-telemetry.sh
+  - destination: /etc/systemd/system/cgroup-memory-telemetry.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cgroup-memory-telemetry.service
+  - destination: /etc/systemd/system/cgroup-memory-telemetry.timer
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cgroup-memory-telemetry.timer
+  - destination: /opt/scripts/cgroup-pressure-telemetry.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cgroup-pressure-telemetry.sh
+  - destination: /etc/systemd/system/cgroup-pressure-telemetry.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cgroup-pressure-telemetry.service
+  - destination: /etc/systemd/system/cgroup-pressure-telemetry.timer
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/cgroup-pressure-telemetry.timer
+  - destination: /usr/local/bin/ci-syslog-watcher.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ci-syslog-watcher.sh
+  - destination: /etc/systemd/system/ci-syslog-watcher.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ci-syslog-watcher.service
+  - destination: /etc/systemd/system/ci-syslog-watcher.path
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ci-syslog-watcher.path
+  - destination: /opt/azure/containers/aks-log-collector.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-log-collector.sh
+  - destination: /opt/azure/containers/aks-log-collector-send.py
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-log-collector-send.py
+  - destination: /etc/systemd/system/aks-log-collector.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-log-collector.service
+  - destination: /etc/systemd/system/aks-log-collector.slice
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-log-collector.slice
+  - destination: /etc/systemd/system/aks-log-collector.timer
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-log-collector.timer
+  - destination: /opt/azure/containers/aks-check-network.sh
+    permissions: '755'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-check-network.sh
+  - destination: /etc/systemd/system/aks-check-network.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-check-network.service
+  - destination: /etc/systemd/system/logrotate.timer.d/override.conf
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/aks-logrotate-override.conf
+  - destination: /etc/systemd/system/ipv6_nftables
+    permissions: '644'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ipv6_nftables
+  - destination: /etc/systemd/system/ipv6_nftables.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ipv6_nftables.service
+  - destination: /opt/scripts/ipv6_nftables.sh
+    permissions: '744'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/ipv6_nftables.sh
+  - destination: /etc/systemd/system/kms.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/kms.service
+  - destination: /etc/systemd/system/containerd.service
+    permissions: '600'
+    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/containerd.service
+  - destination: /NOTICE.txt
+    permissions: '444'
+    source: ../../AgentBaker/vhdbuilder/notice.txt
+  hostname: trident-vm-verity-testimg
+  kernelCommandLine:
+    extraCommandLine: console=tty0 console=tty1 console=ttyS0 rd.debug loglevel=6
+      log_buf_len=1M rd.luks=0
+  packages:
+    install:
+    - openssh-server
+    - policycoreutils-python-utils
+    - selinux-policy
+    - selinux-policy-modules
+    - selinux-policy-ci
+    - setools-console
+    - veritysetup
+    - vim
+    - WaLinuxAgent
+    - moby-engine
+    - moby-cli
+    - ca-certificates
+    - mdadm
+    - dracut-overlayfs
+    - wget
+    - dos2unix
+    - nano
+    - syslog
+    - trident
+    - jq
+    - oci-signature-verification
+    - ca-certificates
+    - cifs-utils
+    - cloud-init-azure-kvp
+    - conntrack-tools
+    - cracklib
+    - ebtables
+    - ethtool
+    - fuse
+    - git
+    - inotify-tools
+    - iotop
+    - iproute
+    - ipset
+    - iptables
+    - jq
+    - logrotate
+    - lsof
+    - nmap-ncat
+    - nfs-utils
+    - pam
+    - pigz
+    - psmisc
+    - rsyslog
+    - socat
+    - sysstat
+    - traceroute
+    - util-linux
+    - xz
+    - zip
+    - blobfuse2
+    - nftables
+    - iscsi-initiator-utils
+    - netplan
+    - kernel
+    - kernel-devel
+  resetBootLoaderType: hard-reset
+  selinux:
+    mode: permissive
+  services:
+    disable:
+    - iptables
+    - docker
+    enable:
+    - etc-mount
+    - sshd
+    - systemd-networkd
+    - systemd-resolved
+    - img-authz-plugin
+    - kubelet
+    - resolv-uplink-override
+    - systemd-sysext
+  users:
+  - name: azuresu
+    secondaryGroups:
+    - sudo
+    sshPublicKeys:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDbfuLf+51OuQxHGozhLg2Jol7VUPQaTtqp01wNBH84BP/AZY9MvRE+yAKTVA72tlPTYOHhnBQBWSzjsmf9H0QGagdQnBGGaCgOqJ8TZCS/G8KOuVyrfR1E7SpHHtvbsxGoyQsF3zUiTbn+i/HNQV4R1yZ5reBhTWPIpCag88NDTWY3RXvT4KPzHeqePKJzOKG1v0Td53cjKCE0UXUZkPCA54ZrVziK8oXp8e7dVbo39Lzeu81iK3bIlouoosrz1xTX6Fw92sJnj4UJvjSbphZyopedCXxEfmG0nlHlNkSlTfzKuKQRvTYDYVM78DHiKj1rT+1RNy8GeG7BnuCpk3Q5OTiw1dkxVcAV4rsgcQXdxGPuZF+yYBfzgFFmBhVvZdcRUPooupE1o6J06mIxgQF215UvpFb367KefHi+udk2fuwzWVdr9Ub3b1Uj9YBEKF9tq1Gt+UKM2JuGbDwY5QgCOvdRS9aPGe0rXZ/OtzqisT2kTWhiAIPzjHi26Rf//YNU51NVBCqint/PzraFghYnS+rh7iD4V67xSKgu6H047SHG59iTHmvZ/mmhMCodeYVmN+KuUT97Gr4foIbtcKvd9+LldyqxBSxW8xF1gC+4WyCl3fr0Z1FnvH7xjCluTVnwXlqPICj0XOg142qtKmg2kol7FZ71iFL5ZxWy123zhw==
+      henry@azldev
+scripts:
+  finalizeCustomization:
+  - path: scripts/setup-resolve-conf.sh
+  postCustomization:
+  - path: scripts/create-ssh-directory.sh
+  - path: scripts/ssh-move-host-keys.sh
+  - path: scripts/azlinuxagentconfig.sh
+  - path: scripts/rootremoval.sh
+  - path: scripts/trident/update-host-status.sh
+  - path: scripts/trident/prepare-update-config-verity.sh
+  - path: scripts/duid-type-to-link-layer.sh
+  - path: scripts/create-etc-overlay.sh
+  - arguments:
+    - overlays
+    path: scripts/selinux-ci-config.sh
+  - path: scripts/setup-notation-cli.sh
+storage:
+  bootType: efi
+  disks:
+  - maxSize: 23724M
+    partitionTableType: gpt
+    partitions:
+    - end: 9M
+      id: esp
+      start: 1M
+      type: esp
+    - end: 1024M
+      id: boot-a
+      start: 9M
+    - end: 2048M
+      id: boot-b
+      start: 1024M
+    - end: 4096M
+      id: root-a
+      label: root-a
+      start: 2048M
+    - end: 6144M
+      id: root-b
+      start: 4096M
+    - end: 6272M
+      id: root-hash-a
+      label: root-hash-a
+      start: 6144M
+    - end: 6400M
+      id: root-hash-b
+      start: 6272M
+    - end: 6528M
+      id: trident-overlay-a
+      start: 6400M
+    - end: 6656M
+      id: trident-overlay-b
+      start: 6528M
+    - end: 13680M
+      id: var-a
+      start: 6656M
+    - end: 14704M
+      id: var-b
+      start: 13680M
+    - end: 15000M
+      id: trident
+      start: 14704M
+    - end: 16920M
+      id: rw
+      label: rw
+      start: 15000M
+    - end: 22623M
+      id: overlays
+      start: 16920M
+    - id: home
+      start: 22623M
+  filesystems:
+  - deviceId: esp
+    mountPoint:
+      options: umask=0077
+      path: /boot/efi
+    type: fat32
+  - deviceId: boot-a
+    mountPoint:
+      path: /boot
+    type: ext4
+  - deviceId: boot-b
+    type: ext4
+  - deviceId: rootverity
+    mountPoint:
+      path: /
+    type: ext4
+  - deviceId: root-b
+    type: ext4
+  - deviceId: var-a
+    mountPoint:
+      path: /var
+    type: ext4
+  - deviceId: var-b
+    type: ext4
+  - deviceId: trident
+    mountPoint:
+      path: /var/lib/trident
+    type: ext4
+  - deviceId: trident-overlay-a
+    mountPoint:
+      path: /var/lib/trident-overlay
+    type: ext4
+  - deviceId: trident-overlay-b
+    type: ext4
+  - deviceId: rw
+    mountPoint:
+      path: /rw
+    type: ext4
+  - deviceId: overlays
+    mountPoint:
+      path: /overlays
+    type: ext4
+  - deviceId: home
+    mountPoint:
+      path: /home
+    type: ext4
+  verity:
+  - corruptionOption: panic
+    dataDeviceId: root-a
+    dataDeviceMountIdType: part-label
+    hashDeviceId: root-hash-a
+    hashDeviceMountIdType: part-label
+    id: rootverity
+    name: root
+
