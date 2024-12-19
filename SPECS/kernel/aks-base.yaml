@@ -1,5 +1,18 @@
 os:
   additionalFiles:
+  # containerd
+  - destination: /usr/local/bin/containerd
+    source: files/containerd
+    permissions: '755'
+  # tarfs kernel module
+  - destination: /etc/tarfs/tarfs.ko
+    source: files/tarfs-6.6.64.1-1.ko
+    permissions: '644'
+  - destination: /etc/containerd/config.toml
+    source: files/config.toml
+    permissions: '644'
+  - destination: /etc/systemd/system/install-tarfs.service
+    source: files/install-tarfs.service
   - destination: /usr/lib/systemd/system/sshd-keygen.service
     source: files/sshd-keygen.service
   - destination: /etc/sudoers.d/no-password-prompt-on-sudo
@@ -207,7 +220,7 @@ os:
     source: ../../AgentBaker/parts/linux/cloud-init/artifacts/kms.service
   - destination: /etc/systemd/system/containerd.service
     permissions: '600'
-    source: ../../AgentBaker/parts/linux/cloud-init/artifacts/containerd.service
+    source: files/containerd.service
   - destination: /NOTICE.txt
     permissions: '444'
     source: ../../AgentBaker/vhdbuilder/notice.txt
@@ -289,6 +302,8 @@ os:
     - kubelet
     - resolv-uplink-override
     - systemd-sysext
+    - install-tarfs
+    - containerd
   users:
   - name: azuresu
     secondaryGroups:
