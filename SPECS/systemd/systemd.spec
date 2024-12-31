@@ -142,6 +142,7 @@ Patch0491:      azurelinux-use-system-auth-in-pam-systemd-user.patch
 # Patches for Azure Linux
 Patch0900:      do-not-test-openssl-sm3.patch
 Patch0901:      networkd-default-use-domains.patch
+Patch0902:      systemd-user-config.patch
 
 %ifarch %{ix86} x86_64
 %global want_bootloader 1

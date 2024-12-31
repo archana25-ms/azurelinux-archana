@@ -1,0 +1,41 @@
+From 7ec5ecffb41f413c7990b18bb9c2e0ff225a1a61 Mon Sep 17 00:00:00 2001
+From: Sandeep Karambelkar <skarambelkar@microsoft.com>
+Date: Tue, 31 Dec 2024 05:10:47 +0000
+Subject: [PATCH] Start user services after logind service
+
+---
+ units/user-runtime-dir@.service.in | 2 +-
+ units/user@.service.in             | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/units/user-runtime-dir@.service.in b/units/user-runtime-dir@.service.in
+index 0641dd0..70e8535 100644
+--- a/units/user-runtime-dir@.service.in
++++ b/units/user-runtime-dir@.service.in
+@@ -10,7 +10,7 @@
+ [Unit]
+ Description=User Runtime Directory /run/user/%i
+ Documentation=man:user@.service(5)
+-After=dbus.service
++After=systemd-logind.service dbus.service
+ StopWhenUnneeded=yes
+ IgnoreOnIsolate=yes
+ 
+diff --git a/units/user@.service.in b/units/user@.service.in
+index da5f98c..5695465 100644
+--- a/units/user@.service.in
++++ b/units/user@.service.in
+@@ -10,8 +10,8 @@
+ [Unit]
+ Description=User Manager for UID %i
+ Documentation=man:user@.service(5)
+-After=user-runtime-dir@%i.service dbus.service systemd-oomd.service
+-Requires=user-runtime-dir@%i.service
++BindsTo=user-runtime-dir@%i.service
++After=systemd-logind.service user-runtime-dir@%i.service dbus.service systemd-oomd.service
+ IgnoreOnIsolate=yes
+ 
+ [Service]
+-- 
+2.45.2
+
