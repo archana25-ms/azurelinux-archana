@@ -359,6 +359,7 @@ echo "initrd of kernel %{uname_r} removed" >&2
 %exclude /lib/modules/%{uname_r}/build
 %exclude /lib/modules/%{uname_r}/kernel/drivers/accessibility
 %exclude /lib/modules/%{uname_r}/kernel/drivers/gpu
+%exclude /lib/modules/%{uname_r}/kernel/drivers/accel
 %exclude /lib/modules/%{uname_r}/kernel/sound
 
 %files docs
@@ -377,6 +378,9 @@ echo "initrd of kernel %{uname_r} removed" >&2
 %files drivers-gpu
 %defattr(-,root,root)
 /lib/modules/%{uname_r}/kernel/drivers/gpu
+%ifarch x86_64
+/lib/modules/%{uname_r}/kernel/drivers/accel
+%endif
 %exclude /lib/modules/%{uname_r}/kernel/drivers/gpu/drm/amd
 
 %files drivers-intree-amdgpu
@@ -425,7 +429,7 @@ echo "initrd of kernel %{uname_r} removed" >&2
 
 %changelog
 * Mon Dec 23 2024 Rachel Menge <rachelmenge@microsoft.com> - 6.6.57.1-8
-- Enable Intel VPU
+- Enable Intel VPU in driver-gpu subpackage
 
 * Sun Dec 22 2024 Ankita Pareek <ankitapareek@microsoft.com> - 6.6.57.1-7
 - Enable CONFIG_INTEL_TDX_GUEST and CONFIG_TDX_GUEST_DRIVER
