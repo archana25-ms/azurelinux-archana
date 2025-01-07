@@ -25562,6 +25562,16 @@
       "component": {
         "type": "other",
         "other": {
+          "name": "rdma-core",
+          "version": "55.0",
+          "downloadUrl": "https://github.com/linux-rdma/rdma-core/rdma-core-55.0.tar.gz"
+        }
+      }
+    },
+    {
+      "component": {
+        "type": "other",
+        "other": {
           "name": "re2c",
           "version": "2.0",
           "downloadUrl": "https://github.com/skvadrik/re2c/releases/download/2.0/re2c-2.0.tar.xz"

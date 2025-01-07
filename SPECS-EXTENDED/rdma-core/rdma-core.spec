@@ -43,7 +43,7 @@ License: GPLv2 or BSD
 Vendor:         Microsoft Corporation
 Distribution:   Azure Linux
 Url: https://github.com/linux-rdma/rdma-core
-Source: rdma-core-%{version}.tar.gz
+Source: https://github.com/linux-rdma/rdma-core/rdma-core-%{version}.tar.gz
 # OFED: Build static libs by default.
 %define with_static %{?_without_static: 0} %{?!_without_static: 1}
 BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
@@ -790,6 +790,7 @@ fi
 %changelog
 * Tue Jan 07 2025 Elaheh Dehghani <edehghani@microsoft.com>
 - Move from internal to extended.
+- License verified
 
 * Thu Nov 07 2024 Suresh Babu Chalamalasetty <schalam@microsoft.com>
 - Initial version Azure Linux
