@@ -69,6 +69,10 @@ MD5_HASH=$(echo -n $PWD | md5sum | awk '{print $1}')
 mkdir -p /root/.cache/bazel/_bazel_$USER/$MD5_HASH/external
 tar -xvf %{SOURCE1} -C /root/.cache/bazel/_bazel_$USER/$MD5_HASH/external
 
+#remove go_sdk and its marker file
+rm -rf /root/.cache/bazel/_bazel_$USER/$MD5_HASH/external/go_sdk
+rm -rf /root/.cache/bazel/_bazel_$USER/$MD5_HASH/external/@go_sdk.marker
+
 # Need to patch CVE-2024-7592 in the bundled python for applicable archs: `ExclusiveArch:  x86_64`
 pushd /root/.cache/bazel/_bazel_$USER/$MD5_HASH/external/python_x86_64-unknown-linux-gnu/lib/python3.12/http
 patch -p1 < %{PATCH0}
