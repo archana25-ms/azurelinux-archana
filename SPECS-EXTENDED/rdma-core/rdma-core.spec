@@ -788,11 +788,12 @@ fi
 %endif
 
 %changelog
-* Tue Jan 07 2025 Elaheh Dehghani <edehghani@microsoft.com>
-- Move from internal to extended.
+* Tue Jan 07 2025 Elaheh Dehghani <edehghani@microsoft.com> - 55.0-1
+- Move from Microsoft internal to extended.
 - License verified
 
 * Thu Nov 07 2024 Suresh Babu Chalamalasetty <schalam@microsoft.com>
-- Initial version Azure Linux
+- Initial Azure Linux import from NVIDIA
+
 * Tue May 9 2023 Leon Romanovsky <leonro@nvidia.com> - 44
 - Fix epoch warning
