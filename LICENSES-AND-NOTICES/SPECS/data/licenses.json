@@ -2459,7 +2459,8 @@
                 "mlx-bootctl",
                 "nvidia-container-toolkit",
                 "ofed-scripts",
-                "perftest"
+                "perftest",
+                "rdma-core"
             ]
         },
         "OpenEuler": {
