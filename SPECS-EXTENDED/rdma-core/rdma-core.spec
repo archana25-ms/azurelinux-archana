@@ -43,7 +43,7 @@ License: GPLv2 or BSD
 Vendor:         Microsoft Corporation
 Distribution:   Azure Linux
 Url: https://github.com/linux-rdma/rdma-core
-Source: https://github.com/linux-rdma/rdma-core/rdma-core-%{version}.tar.gz
+Source: https://github.com/linux-rdma/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
 # OFED: Build static libs by default.
 %define with_static %{?_without_static: 0} %{?!_without_static: 1}
 BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
