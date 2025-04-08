@@ -1197,8 +1197,8 @@
         "type": "other",
         "other": {
           "name": "boom-boot",
-          "version": "1.2",
-          "downloadUrl": "https://github.com/snapshotmanager/boom/archive/1.2/boom-1.2.tar.gz"
+          "version": "1.6.5",
+          "downloadUrl": "https://github.com/snapshotmanager/boom/archive/1.6.5/boom-boot-1.6.5.tar.gz"
         }
       }
     },
@@ -1297,8 +1297,8 @@
         "type": "other",
         "other": {
           "name": "buildah",
-          "version": "1.18.0",
-          "downloadUrl": "https://github.com/containers/buildah/archive/v1.18.0.tar.gz"
+          "version": "1.38.0",
+          "downloadUrl": "https://github.com/containers/buildah/archive/v1.38.0.tar.gz"
         }
       }
     },
@@ -10631,8 +10631,8 @@
         "type": "other",
         "other": {
           "name": "libpaper",
-          "version": "1.1.28",
-          "downloadUrl": "http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.28.tar.gz"
+          "version": "2.1.1",
+          "downloadUrl": "https://github.com/rrthomas/libpaper/archive/v%2.1.1/libpaper-2.1.1.tar.gz"
         }
       }
     },
@@ -14162,8 +14162,8 @@
         "type": "other",
         "other": {
           "name": "netsniff-ng",
-          "version": "0.6.8",
-          "downloadUrl": "http://www.netsniff-ng.org/pub/netsniff-ng/netsniff-ng-0.6.8.tar.xz"
+          "version": "0.6.9",
+          "downloadUrl": "https://github.com/netsniff-ng/netsniff-ng/archive/refs/tags/v0.6.9.tar.gz"
         }
       }
     },
@@ -22073,8 +22073,8 @@
         "type": "other",
         "other": {
           "name": "python-beautifulsoup4",
-          "version": "4.11.2",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautifulsoup4-4.11.2.tar.gz"
+          "version": "4.12.3",
+          "downloadUrl": "https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautifulsoup4-4.12.3.tar.gz"
         }
       }
     },
@@ -22403,8 +22403,8 @@
         "type": "other",
         "other": {
           "name": "python-curio",
-          "version": "1.4",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/c/curio/curio-1.4.tar.gz"
+          "version": "1.6^1.1484546",
+          "downloadUrl": "https://github.com/dabeaz/curio/archive/148454621f9bd8dd843f591e87715415431f6979/curio-1484546.tar.gz"
         }
       }
     },
@@ -22703,8 +22703,8 @@
         "type": "other",
         "other": {
           "name": "python-fasteners",
-          "version": "0.18",
-          "downloadUrl": "https://github.com/harlowja/fasteners/archive/0.18/fasteners-0.18.tar.gz"
+          "version": "0.19",
+          "downloadUrl": "https://github.com/harlowja/fasteners/archive/0.19/fasteners-0.19.tar.gz"
         }
       }
     },
@@ -22843,8 +22843,8 @@
         "type": "other",
         "other": {
           "name": "python-genshi",
-          "version": "0.7.5",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/G/Genshi/Genshi-0.7.5.tar.gz"
+          "version": "0.7.9",
+          "downloadUrl": "https://files.pythonhosted.org/packages/source/G/Genshi/Genshi-0.7.9.tar.gz"
         }
       }
     },
@@ -23123,8 +23123,8 @@
         "type": "other",
         "other": {
           "name": "python-iso8601",
-          "version": "0.1.12",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/i/iso8601/iso8601-0.1.12.tar.gz"
+          "version": "1.1.0",
+          "downloadUrl": "https://files.pythonhosted.org/packages/source/i/iso8601/iso8601-1.1.0.tar.gz"
         }
       }
     },
@@ -23133,8 +23133,8 @@
         "type": "other",
         "other": {
           "name": "python-isodate",
-          "version": "0.6.0",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/i/isodate/isodate-0.6.0.tar.gz"
+          "version": "0.6.1",
+          "downloadUrl": "https://files.pythonhosted.org/packages/source/i/isodate/isodate-0.6.1.tar.gz"
         }
       }
     },
@@ -23513,8 +23513,8 @@
         "type": "other",
         "other": {
           "name": "python-mimeparse",
-          "version": "1.6.0",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/p/python-mimeparse/python-mimeparse-1.6.0.tar.gz"
+          "version": "2.0.0",
+          "downloadUrl": "https://files.pythonhosted.org/packages/source/p/python-mimeparse/python_mimeparse-2.0.0.tar.gz"
         }
       }
     },
@@ -23583,8 +23583,8 @@
         "type": "other",
         "other": {
           "name": "python-msal",
-          "version": "1.18.0~b1",
-          "downloadUrl": "https://github.com/AzureAD/microsoft-authentication-library-for-python/archive/1.18.0b1/microsoft-authentication-library-for-python-1.18.0b1.tar.gz"
+          "version": "1.31.1",
+          "downloadUrl": "https://github.com/AzureAD/microsoft-authentication-library-for-python/archive/1.31.1/microsoft-authentication-library-for-python-1.31.1.tar.gz"
         }
       }
     },
@@ -23983,8 +23983,8 @@
         "type": "other",
         "other": {
           "name": "python-productmd",
-          "version": "1.30",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/p/productmd/productmd-1.30.tar.gz"
+          "version": "1.41",
+          "downloadUrl": "https://files.pythonhosted.org/packages/source/p/productmd/productmd-1.41.tar.gz"
         }
       }
     },
@@ -24323,8 +24323,8 @@
         "type": "other",
         "other": {
           "name": "python-pytest-timeout",
-          "version": "1.4.2",
-          "downloadUrl": "https://files.pythonhosted.org/packages/source/p/pytest-timeout/pytest-timeout-1.4.2.tar.gz"
+          "version": "2.3.1",
+          "downloadUrl": "https://files.pythonhosted.org/packages/source/p/pytest-timeout/pytest-timeout-2.3.1.tar.gz"
         }
       }
     },
@@ -25063,8 +25063,8 @@
         "type": "other",
         "other": {
           "name": "python-testresources",
-          "version": "1.0.0",
-          "downloadUrl": "https://pypi.python.org/packages/source/t/testresources/testresources-1.0.0.tar.gz"
+          "version": "2.0.1",
+          "downloadUrl": "https://github.com/testing-cabal/testresources/archive/refs/tags/2.0.1.tar.gz"
         }
       }
     },

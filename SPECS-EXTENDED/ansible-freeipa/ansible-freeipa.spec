@@ -19,6 +19,7 @@ Release: 2%{?dist}
 URL: https://github.com/freeipa/ansible-freeipa
 License: GPL-3.0-or-later
 Source: https://github.com/freeipa/ansible-freeipa/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+#Source:  https://github.com/freeipa/ansible-freeipa/archive/refs/tags/v1.13.2.tar.gz
 BuildArch: noarch
 BuildRequires: ansible
 BuildRequires: python
@@ -131,6 +132,14 @@ Provides: ansible-collection-%{collection_namespace}-%{collection_name} = %{vers
 
 %description collection
 The %{collection_namespace}.%{collection_name} collection, including tests.
+
+%package collection
+Summary: %{collection_namespace}.%{collection_name} collection
+Provides: ansible-collection-%{collection_namespace}-%{collection_name} = %{version}-%{release}
+
+%description collection
+The %{collection_namespace}.%{collection_name} collection, including tests.
+
 
 %prep
 %autosetup -p1
