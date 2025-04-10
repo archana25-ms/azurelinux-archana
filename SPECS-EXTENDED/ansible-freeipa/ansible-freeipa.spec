@@ -133,14 +133,6 @@ Provides: ansible-collection-%{collection_namespace}-%{collection_name} = %{vers
 %description collection
 The %{collection_namespace}.%{collection_name} collection, including tests.
 
-%package collection
-Summary: %{collection_namespace}.%{collection_name} collection
-Provides: ansible-collection-%{collection_namespace}-%{collection_name} = %{version}-%{release}
-
-%description collection
-The %{collection_namespace}.%{collection_name} collection, including tests.
-
-
 %prep
 %autosetup -p1
 sed -i "s/python/python3/g" utils/build-galaxy-release.sh
