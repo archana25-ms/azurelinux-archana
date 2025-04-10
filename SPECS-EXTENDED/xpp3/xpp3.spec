@@ -8,7 +8,7 @@ Distribution:   Azure Linux
 Release:        28%{?dist}
 License:        ASL 1.1
 URL:            https://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/index.html
-Source0:        http://www.extreme.indiana.edu/dist/java-repository/xpp3/distributions/xpp3-%{version}_src.tgz
+Source0:        https://web.archive.org/web/20201024082744/http://www.extreme.indiana.edu/dist/java-repository/xpp3/distributions/xpp3-1.1.4c_src.tgz
 Source1:        https://repo1.maven.org/maven2/xpp3/xpp3/%{oversion}/xpp3-%{oversion}.pom
 Source2:        https://repo1.maven.org/maven2/xpp3/xpp3_xpath/%{oversion}/xpp3_xpath-%{oversion}.pom
 Source3:        https://repo1.maven.org/maven2/xpp3/xpp3_min/%{oversion}/xpp3_min-%{oversion}.pom
