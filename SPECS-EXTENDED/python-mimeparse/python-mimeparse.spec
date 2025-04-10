@@ -34,13 +34,26 @@ matching mime-types against a list of media-ranges.}
 %description %{common_description}
 
 
-%package -n python3-mimeparse
+%if %{with python2}
+%package -n python2-%{pkgname}
 Summary:        %{summary}
-BuildRequires:  python3-devel
-BuildRequires:  python3-pytest
+BuildRequires:  python2-devel
+BuildRequires:  python2-setuptools
+%{?python_provide:%python_provide python2-%{pkgname}}
 
 
-%description -n python3-mimeparse %{common_description}
+%description -n python2-%{pkgname} %{common_description}
+%endif
+
+
+%package -n python%{python3_pkgversion}-%{pkgname}
+Summary:        %{summary}
+BuildRequires:  python%{python3_pkgversion}-devel
+BuildRequires:  python%{python3_pkgversion}-setuptools
+%{?python_provide:%python_provide python%{python3_pkgversion}-%{pkgname}}
+
+
+%description -n python%{python3_pkgversion}-%{pkgname} %{common_description}
 
 
 %prep
@@ -71,7 +84,9 @@ BuildRequires:  python3-pytest
 %pytest
 
 
-%files -n python3-mimeparse -f %{pyproject_files}
+%if %{with python2}
+%files -n python2-%{pkgname}
+%license LICENSE
 %doc README.rst
 %{python2_sitelib}/%{libname}.py*
 %{python2_sitelib}/python_mimeparse-%{version}-py%{python2_version}.egg-info
