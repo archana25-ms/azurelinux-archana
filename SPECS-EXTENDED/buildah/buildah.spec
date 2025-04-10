@@ -30,12 +30,9 @@ Version: 1.38.0
 License: Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND ISC AND MIT AND MPL-2.0
 
 Release: 1%{?dist} 
-%if %{defined golang_arches_future}
-ExclusiveArch: %{golang_arches_future}
-%else                                                
 
 ExclusiveArch: aarch64 ppc64le s390x x86_64
-%endif
+
 Summary: A command line tool used for creating OCI Images
 URL: https://%{name}.io
 # Tarball fetched from upstream
