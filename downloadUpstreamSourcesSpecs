@@ -125,6 +125,7 @@ libdbi-drivers
 libeasyfc
 libgeotiff
 libgexiv2
+libgit2-glib
 libgsf
 libimobiledevice
 libiodbc
@@ -166,6 +167,7 @@ lua-filesystem
 lua-json
 lua-lpeg
 lua-lunit
+lua-lunitx
 lua-term
 lzip
 m17n-db
@@ -176,11 +178,13 @@ man-pages-es
 man-pages-it
 man-pages-ja
 man-pages-ko
+man-pages-l10n
 man-pages-pl
 man-pages-zh-CN
 mariadb-connector-odbc
 marisa
 microdnf
+mock-core-configs
 mod_auth_gssapi
 mod_auth_mellon
 mod_auth_openidc
