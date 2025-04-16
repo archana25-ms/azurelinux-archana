@@ -452,7 +452,8 @@ rubygem-racc
 rubygem-scanf
 rubygem-test-unit-ruby-core
 perl-Test-RandomResult
-zixsdl12-compat
+zix
+sdl12-compat
 apache-commons-vfs
 fwupd
 dleyna
