@@ -40,6 +40,7 @@ cpuid
 criu
 crypto-policies
 dbxtool
+delve
 device-mapper-persistent-data
 dleyna-connector-dbus
 dovecot
@@ -66,6 +67,7 @@ gtk-vnc
 gupnp
 gupnp-av
 gupnp-igd
+hawtjni
 hawtjni-runtime
 highlight
 httpcomponents-core
