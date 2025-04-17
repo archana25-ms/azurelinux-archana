@@ -101,7 +101,6 @@ jose
 js-jquery
 jsoncpp
 jsoup
-junitperf
 keycloak-httpd-client-install
 kronosnet
 kyotocabinet
@@ -383,6 +382,7 @@ qt5-qtserialport
 rarian
 rear
 redland
+regexp
 resource-agents
 rhino
 rp-pppoe
