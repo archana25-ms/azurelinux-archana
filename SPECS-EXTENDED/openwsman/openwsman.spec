@@ -1,27 +1,5 @@
-# RubyGems's macros expect gem_name to exist.
-%global		gem_name %{name}
-
-# defining macros needed by SELinux
-# unless running a flatpak build.
-%if 0%{?flatpak}
-%global with_selinux 0
-%else
-%global with_selinux 1
-%global selinuxtype targeted
-%global modulename openwsman
-%endif
-
-# Bindings install in the wrong path for a flatpak build; this could be fixed, but
-# we don't currently need the bindings for any Flatpak'ed application
-%if 0%{?flatpak}
-%global with_ruby 0
-%global with_perl 0
-%global with_python 0
-%else
-%global with_ruby 1
-%global with_perl 1
-%global with_python 1
-%endif
+Vendor:         Microsoft Corporation
+Distribution:   Azure Linux
 
 Name:		openwsman
 Version:	2.7.2
@@ -29,8 +7,8 @@ Release:	11%{?dist}
 Summary:	Open source Implementation of WS-Management
 
 License:	BSD-3-Clause AND MIT
-URL:		http://www.openwsman.org/
-Source0:	https://github.com/Openwsman/openwsman/archive/v%{version}.tar.gz
+URL:		https://www.openwsman.org/
+Source0:	https://github.com/Openwsman/openwsman/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 # help2man generated manpage for openwsmand binary
 Source1:	openwsmand.8.gz
 # service file for systemd
@@ -38,12 +16,7 @@ Source2:	openwsmand.service
 # script for testing presence of the certificates in ExecStartPre
 Source3:	owsmantestcert.sh
 # Source100-102: selinux policy for openwsman, extracted
-# from https://github.com/fedora-selinux/selinux-policy
-%if 0%{with_selinux}
-Source100: %{modulename}.te
-Source101: %{modulename}.if
-Source102: %{modulename}.fc
-%endif
+
 Patch1:		openwsman-2.4.0-pamsetup.patch
 Patch2:		openwsman-2.4.12-ruby-binding-build.patch
 Patch3:		openwsman-2.6.2-openssl-1.1-fix.patch
@@ -53,15 +26,10 @@ Patch6:		openwsman-2.7.2-fix-ftbfs.patch
 BuildRequires:	make
 BuildRequires:	swig
 BuildRequires:	libcurl-devel libxml2-devel pam-devel sblim-sfcc-devel
-%if %{with_python}
 BuildRequires:	python3 python3-devel
-%endif
-%if %{with_ruby}
-BuildRequires:	ruby ruby-devel rubygems-devel
-%endif
-%if %{with_perl}
+
 BuildRequires:	perl-interpreter perl-devel perl-generators
-%endif
+
 BuildRequires:	pkgconfig openssl-devel
 BuildRequires:	cmake
 BuildRequires:	systemd-units
@@ -70,7 +38,7 @@ BuildRequires:	gcc gcc-c++
 %description
 Openwsman is a project intended to provide an open-source
 implementation of the Web Services Management specification
-(WS-Management) and to expose system management information on the
+ (WS-Management) and to expose system management information on the
 Linux operating system using the WS-Management protocol. WS-Management
 is based on a suite of web services specifications and usage
 requirements that exposes a set of operations focused on and covers
@@ -110,16 +78,11 @@ Openwsman Client libraries.
 License:	BSD-3-Clause AND MIT
 Summary:	Openwsman Server and service libraries
 Requires:	libwsman1 = %{version}-%{release}
-%if 0%{?with_selinux}
-# This ensures that the *-selinux package and all it’s dependencies are not pulled
-# into containers and other systems that do not use SELinux
-Requires:  (%{name}-selinux if selinux-policy-%{selinuxtype})
-%endif
+
 
 %description server
 Openwsman Server and service libraries.
 
-%if %{with_python}
 %package python3
 License:	BSD-3-Clause AND MIT
 Summary:	Python bindings for openwsman client API
@@ -129,29 +92,8 @@ Requires:	libwsman1 = %{version}-%{release}
 
 %description python3
 This package provides Python3 bindings to access the openwsman client API.
-%endif
 
-%if %{with_ruby}
-%package -n rubygem-%{gem_name}
-License:	BSD-3-Clause AND MIT
-Summary:	Ruby client bindings for Openwsman
-Obsoletes:	%{name}-ruby < %{version}-%{release}
-Requires:	libwsman1 = %{version}-%{release}
 
-%description -n rubygem-%{gem_name}
-The openwsman gem provides a Ruby API to manage systems using
-the WS-Management protocol.
-
-%package -n rubygem-%{gem_name}-doc
-Summary:	Documentation for %{name}
-Requires:	rubygem-%{gem_name} = %{version}-%{release}
-BuildArch:	noarch
-
-%description -n rubygem-%{gem_name}-doc
-Documentation for rubygem-%{gem_name}
-%endif
-
-%if %{with_perl}
 %package perl
 License:	BSD-3-Clause AND MIT
 Summary:	Perl bindings for openwsman client API
@@ -159,29 +101,8 @@ Requires:	libwsman1 = %{version}-%{release}
 
 %description perl
 This package provides Perl bindings to access the openwsman client API.
-%endif
 
-%package winrs
-Summary:	Windows Remote Shell
-Requires:	rubygem-%{gem_name} = %{version}-%{release}
 
-%description winrs
-This is a command line tool for the Windows Remote Shell protocol.
-You can use it to send shell commands to a remote Windows hosts.
-
-%if 0%{?with_selinux}
-# SELinux subpackage
-%package selinux
-Summary:   openwsman SELinux policy
-BuildArch: noarch
-Requires:  selinux-policy-%{selinuxtype}
-Requires(post): selinux-policy-%{selinuxtype}
-BuildRequires: selinux-policy-devel
-%{?selinux_requires}
-
-%description selinux
-Custom SELinux policy module
-%endif
 
 %prep
 %setup -q
@@ -209,56 +130,27 @@ cmake \
 	-DPACKAGE_ARCHITECTURE=`uname -m` \
 	-DLIB=%{_lib} \
 	-DBUILD_JAVA=no \
-	-DBUILD_PYTHON=no \
-%if ! %{with_python}
-	-DBUILD_PYTHON3=no \
-%endif
-%if ! %{with_perl}
-	-DBUILD_PERL=no \
-%endif
-%if ! %{with_ruby}
-	-DBUILD_RUBY=no \
-%endif
+        -DBUILD_PYTHON=no \
 	..
 
 make
 
-%if %{with_ruby}
 # Make the freshly build openwsman libraries available to build the gem's
 # binary extension.
 export LIBRARY_PATH=%{_builddir}/%{name}-%{version}/build/src/lib
 export CPATH=%{_builddir}/%{name}-%{version}/include/
 export LD_LIBRARY_PATH=%{_builddir}/%{name}-%{version}/build/src/lib/
 
-%gem_install -n ./bindings/ruby/%{name}-%{version}.gem
-%endif
-
-%if 0%{?with_selinux}
-# SELinux policy (originally from selinux-policy-contrib)
-# this policy module will override the production module
-mkdir selinux
-cp -p %{SOURCE100} %{SOURCE101} %{SOURCE102} selinux/
-make -f %{_datadir}/selinux/devel/Makefile %{modulename}.pp
-bzip2 -9 %{modulename}.pp
-%endif
 
 %install
 cd build
 
-%if %{with_ruby}
-# Do not install the ruby extension, we are proviging the rubygem- instead.
-echo -n > bindings/ruby/cmake_install.cmake
-%endif
 
 %make_install
 cd ..
 rm -f %{buildroot}/%{_libdir}/*.la
 rm -f %{buildroot}/%{_libdir}/openwsman/plugins/*.la
 rm -f %{buildroot}/%{_libdir}/openwsman/authenticators/*.la
-%if %{with_ruby}
-[ -d %{buildroot}/%{ruby_vendorlibdir} ] && rm -f %{buildroot}/%{ruby_vendorlibdir}/openwsmanplugin.rb
-[ -d %{buildroot}/%{ruby_vendorlibdir} ] && rm -f %{buildroot}/%{ruby_vendorlibdir}/openwsman.rb
-%endif
 mkdir -p %{buildroot}%{_sysconfdir}/init.d
 install -m 644 etc/openwsman.conf %{buildroot}/%{_sysconfdir}/openwsman
 install -m 644 etc/openwsman_client.conf %{buildroot}/%{_sysconfdir}/openwsman
@@ -273,22 +165,6 @@ cp %SOURCE1 %{buildroot}/%{_mandir}/man8/
 install -m 644 include/wsman-xml.h %{buildroot}/%{_includedir}/openwsman
 install -m 644 include/wsman-xml-binding.h %{buildroot}/%{_includedir}/openwsman
 install -m 644 include/wsman-dispatcher.h %{buildroot}/%{_includedir}/openwsman
-
-%if %{with_ruby}
-mkdir -p %{buildroot}%{gem_dir}
-cp -pa ./build%{gem_dir}/* \
-	%{buildroot}%{gem_dir}/
-
-rm -rf %{buildroot}%{gem_instdir}/ext
-
-mkdir -p %{buildroot}%{gem_extdir_mri}
-cp -a ./build%{gem_extdir_mri}/{gem.build_complete,*.so} %{buildroot}%{gem_extdir_mri}/
-%endif
-
-%if 0%{?with_selinux}
-install -D -m 0644 build/%{modulename}.pp.bz2 %{buildroot}%{_datadir}/selinux/packages/%{selinuxtype}/%{modulename}.pp.bz2
-install -D -p -m 0644 build/selinux/%{modulename}.if %{buildroot}%{_datadir}/selinux/devel/include/distributed/%{name}.if
-%endif
 
 %ldconfig_scriptlets -n libwsman1
 
@@ -306,28 +182,6 @@ rm -f /var/log/wsmand.log
 
 %ldconfig_scriptlets client
 
-%if 0%{?with_selinux}
-# SELinux contexts are saved so that only affected files can be
-# relabeled after the policy module installation
-%pre selinux
-%selinux_relabel_pre -s %{selinuxtype}
-
-%post selinux
-%selinux_modules_install -s %{selinuxtype} %{_datadir}/selinux/packages/%{selinuxtype}/%{modulename}.pp.bz2
-%selinux_relabel_post -s %{selinuxtype}
-
-if [ "$1" -le "1" ]; then # First install
-   # the service needs to be restarted for the custom label to be applied
-   %systemd_postun_with_restart openwsmand.service
-fi
-
-%postun selinux
-if [ $1 -eq 0 ]; then
-    %selinux_modules_uninstall -s %{selinuxtype} %{modulename}
-    %selinux_relabel_post -s %{selinuxtype}
-fi
-%endif
-
 %files -n libwsman1
 %doc AUTHORS COPYING ChangeLog README.md TODO
 %{_libdir}/libwsman.so.*
@@ -340,35 +194,17 @@ fi
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
 
-%if %{with_python}
 %files python3
 %doc AUTHORS COPYING ChangeLog README.md
 %{python3_sitearch}/*.so
 %{python3_sitearch}/*.py
 %{python3_sitearch}/__pycache__/*
-%endif
 
-%if %{with_ruby}
-%files -n rubygem-%{gem_name}
-%doc AUTHORS COPYING ChangeLog README.md
-%dir %{gem_instdir}
-%{gem_libdir}
-%{gem_extdir_mri}
-%exclude %{gem_cache}
-%{gem_spec}
-%endif
 
-%if %{with_ruby}
-%files -n rubygem-%{gem_name}-doc
-%doc %{gem_docdir}
-%endif
-
-%if %{with_perl}
 %files perl
 %doc AUTHORS COPYING ChangeLog README.md
 %{perl_vendorarch}/openwsman.so
 %{perl_vendorlib}/openwsman.pm
-%endif
 
 %files server
 %doc AUTHORS COPYING ChangeLog README.md
@@ -397,17 +233,14 @@ fi
 %{_libdir}/libwsman_clientpp.so.*
 %config(noreplace) %{_sysconfdir}/openwsman/openwsman_client.conf
 
-%files winrs
 %{_bindir}/winrs
 
-%if 0%{?with_selinux}
-%files selinux
-%{_datadir}/selinux/packages/%{selinuxtype}/%{modulename}.pp.*
-%{_datadir}/selinux/devel/include/distributed/%{modulename}.if
-%ghost %verify(not md5 size mode mtime) %{_sharedstatedir}/selinux/%{selinuxtype}/active/modules/200/%{modulename}
-%endif
 
 %changelog
+* Sat Apr 19 2025 Durga Jagadeesh Palli <v-dpalli@microsoft.com> - 2.7.2-12
+- Upgrade to v2.7.2, taken reference from Fedora 41 (license: MIT)
+- License verified.
+
 * Thu Jul 18 2024 Fedora Release Engineering <releng@fedoraproject.org> - 2.7.2-11
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
 
