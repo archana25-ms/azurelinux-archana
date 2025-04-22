@@ -2,7 +2,7 @@ From d2d3d4dcdc2182e8e126c73473108eeb50eb25e7 Mon Sep 17 00:00:00 2001
 From: EXPLOSION <git@helvetica.moe>
 Date: Mon, 27 May 2024 12:23:31 +0200
 Subject: [PATCH] Fixes for 3.13
-
+ 
 ---
  trio/_core/_generated_instrumentation.py |  5 +++--
  trio/_core/_generated_io_epoll.py        |  6 +++---
@@ -13,7 +13,7 @@ Subject: [PATCH] Fixes for 3.13
  trio/_core/_run.py                       |  6 +++---
  trio/_tests/test_path.py                 |  2 +-
  8 files changed, 35 insertions(+), 33 deletions(-)
-
+ 
 diff --git a/trio/_core/_generated_instrumentation.py b/trio/_core/_generated_instrumentation.py
 index c7fefc3..990c405 100644
 --- a/trio/_core/_generated_instrumentation.py
@@ -361,4 +361,3 @@ index 3528053..dd3ec66 100644
  @pytest.mark.parametrize("method_name", ["is_dir", "is_file"])
 -- 
 2.44.0
-

@@ -2,7 +2,7 @@ From 86182cb193a71533a7a12b8d45a6ad4103d41ccc Mon Sep 17 00:00:00 2001
 From: Dave Hall <dave@etianen.com>
 Date: Mon, 11 Mar 2024 21:35:12 +0000
 Subject: [PATCH] `Path` refactor (#2959)
-
+ 
 ---
  docs/source/reference-io.rst   |   5 +
  newsfragments/2959.feature.rst |   5 +
@@ -12,7 +12,7 @@ Subject: [PATCH] `Path` refactor (#2959)
  trio/_tests/test_path.py       |  48 +--
  6 files changed, 193 insertions(+), 445 deletions(-)
  create mode 100644 newsfragments/2959.feature.rst
-
+ 
 diff --git a/docs/source/reference-io.rst b/docs/source/reference-io.rst
 index d0525e3..45752c1 100644
 --- a/docs/source/reference-io.rst
@@ -843,4 +843,3 @@ index 30158f8..3528053 100644
      path: trio.Path,
 -- 
 2.45.0
-
