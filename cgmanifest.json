@@ -14546,17 +14546,7 @@
           "downloadUrl": "https://github.com/linux-nvme/nvme-cli/archive/v2.8.tar.gz"
         }
       }
-    },
-    {
-      "component": {
-        "type": "other",
-        "other": {
-          "name": "nvmetcli",
-          "version": "0.4",
-          "downloadUrl": "ftp://ftp.infradead.org/pub/nvmetcli/nvmetcli-0.4.tar.gz"
-        }
-      }
-    },
+    },    
     {
       "component": {
         "type": "other",
