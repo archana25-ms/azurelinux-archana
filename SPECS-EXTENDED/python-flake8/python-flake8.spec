@@ -21,7 +21,6 @@ BuildRequires:    python%{python3_pkgversion}-mccabe
  
 # tox config mixes coverage and tests, so we specify this manually instead
 BuildRequires:    python%{python3_pkgversion}-pytest
- 
 %description
 Flake8 is a wrapper around PyFlakes, pycodestyle, and Ned's McCabe
 script. It runs all the tools by launching the single flake8 script,
@@ -32,7 +31,7 @@ skipped, lines that contain a "# noqa" comment at the end will not
 issue warnings, Git and Mercurial hooks are included, a McCabe
 complexity checker is included, and it is extendable through
 flake8.extension entry points.
- 
+
 %package -n python%{python3_pkgversion}-flake8
 Summary:          %{summary}
  
@@ -49,6 +48,7 @@ flake8.extension entry points.
  
 %prep
 %autosetup -p1 -n flake8-%{version}
+
 # Allow pycodestyle 2.12, https://bugzilla.redhat.com/2325146
 sed -i 's/pycodestyle>=2.11.0,<2.12.0/pycodestyle>=2.11.0,<2.13.0/' setup.cfg
  
@@ -76,6 +76,7 @@ ln -s flake8 %{buildroot}%{_bindir}/python3-flake8
 %{_bindir}/flake8-3
 %{_bindir}/flake8-%{python3_version}
 %{_bindir}/python3-flake8
+
 
 %changelog
 * Tue Apr 22 2025 Akarsh Chaudhary <v-akarshc@microsoft.com> - 6.1.0-1
