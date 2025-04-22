@@ -1,5 +1,4 @@
 %global         maj 0
-
 Name:           zix
 Version:        0.6.2
 Release:        2%{?dist}
