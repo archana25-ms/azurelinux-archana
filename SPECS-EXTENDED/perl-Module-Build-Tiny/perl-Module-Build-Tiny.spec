@@ -87,7 +87,7 @@ perl Build.PL --installdirs=vendor
 
 %changelog
 * Mon Dec 16 2024 Jyoti Kanase <v-jykanase@microsoft.com> - 0.051-1
-- Update to 0.051 
+- Upgrade to 0.051 
 - License verified
 
 * Fri Oct 15 2021 Pawel Winogrodzki <pawelwi@microsoft.com> - 0.039-17

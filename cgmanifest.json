@@ -6780,8 +6780,8 @@
         "type": "other",
         "other": {
           "name": "hyphen-it",
-          "version": "0.20071127",
-          "downloadUrl": "http://download.services.openoffice.org/contrib/dictionaries/hyph_it_IT.zip"
+          "version": "5.1.1",
+          "downloadUrl": "https://pagure.io/dizionario_italiano/archive/5.1.1/dizionario_italiano-5.1.1.tar.gz"
         }
       }
     },
@@ -8821,8 +8821,8 @@
         "type": "other",
         "other": {
           "name": "libblockdev",
-          "version": "2.28",
-          "downloadUrl": "https://github.com/storaged-project/libblockdev/releases/download/2.28-1/libblockdev-2.28.tar.gz"
+          "version": "3.2.0",
+          "downloadUrl": "https://github.com/storaged-project/libblockdev/releases/download/3.2.0/libblockdev-3.2.0.tar.gz"
         }
       }
     },
@@ -9701,8 +9701,8 @@
         "type": "other",
         "other": {
           "name": "libgxps",
-          "version": "0.3.1",
-          "downloadUrl": "https://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz"
+          "version": "0.3.2",
+          "downloadUrl": "https://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.2.tar.xz"
         }
       }
     },
@@ -10091,8 +10091,8 @@
         "type": "other",
         "other": {
           "name": "liblqr-1",
-          "version": "0.4.2",
-          "downloadUrl": "http://liblqr.wikidot.com/local--files/en:download-page/liblqr-1-0.4.2.tar.bz2"
+          "version": "0.4.3",
+          "downloadUrl": "https://liblqr.wikidot.com/local--files/en:download-page/liblqr-1-0.4.3.tar.bz2"
         }
       }
     },
@@ -12041,8 +12041,8 @@
         "type": "other",
         "other": {
           "name": "libXScrnSaver",
-          "version": "1.2.3",
-          "downloadUrl": "https://www.x.org/pub/individual/lib/libXScrnSaver-1.2.3.tar.bz2"
+          "version": "1.2.4",
+          "downloadUrl": "https://www.x.org/pub/individual/lib/libXScrnSaver-1.2.4.tar.xz"
         }
       }
     },
@@ -13051,8 +13051,8 @@
         "type": "other",
         "other": {
           "name": "mdds",
-          "version": "1.5.0",
-          "downloadUrl": "http://kohei.us/files/mdds/src/mdds-1.5.0.tar.bz2"
+          "version": "2.1.1",
+          "downloadUrl": "https://kohei.us/files/mdds/src/mdds-2.1.1.tar.bz2"
         }
       }
     },
@@ -15583,8 +15583,8 @@
         "type": "other",
         "other": {
           "name": "os-prober",
-          "version": "1.77",
-          "downloadUrl": "http://ftp.us.debian.org/debian/pool/main/o/os-prober/os-prober_1.77.tar.xz"
+          "version": "1.81",
+          "downloadUrl": "https://deb.debian.org/debian/pool/main/o/os-prober/os-prober_1.81.tar.xz"
         }
       }
     },
@@ -15623,8 +15623,8 @@
         "type": "other",
         "other": {
           "name": "osinfo-db",
-          "version": "20221130",
-          "downloadUrl": "https://releases.pagure.org/libosinfo/osinfo-db-20221130.tar.xz"
+          "version": "20240701",
+          "downloadUrl": "https://releases.pagure.org/libosinfo/osinfo-db-20240701.tar.xz"
         }
       }
     },
@@ -18523,8 +18523,8 @@
         "type": "other",
         "other": {
           "name": "perl-Module-Build-Tiny",
-          "version": "0.039",
-          "downloadUrl": "https://cpan.metacpan.org/modules/by-module/Module/Module-Build-Tiny-0.039.tar.gz"
+          "version": "0.051",
+          "downloadUrl": "https://cpan.metacpan.org/modules/by-module/Module/Module-Build-Tiny-0.051.tar.gz"
         }
       }
     },
@@ -27323,6 +27323,16 @@
       "component": {
         "type": "other",
         "other": {
+          "name": "rubygem-sys-filesystem",
+          "version": "1.4.3",
+          "downloadUrl": "https://github.com/djberg96/sys-filesystem/archive/refs/tags/sys-filesystem-1.4.3.tar.gz"
+        }
+      }
+    },
+    {
+      "component": {
+        "type": "other",
+        "other": {
           "name": "rubygem-systemd-journal",
           "version": "1.4.2",
           "downloadUrl": "https://github.com/ledbettj/systemd-journal/archive/refs/tags/v1.4.2.tar.gz"
@@ -31252,6 +31262,16 @@
           "version": "1.0.3",
           "downloadUrl": "https://github.com/sebastiandev/zipper/archive/v1.0.3.tar.gz"
         }
+      }
+    },
+    {
+      "component": {                                                              
+        "type": "other",
+        "other": {
+          "name": "zix",                                                           
+	  "version": "0.6.2",
+          "downloadUrl": "https://download.drobilla.net/zix-0.6.2.tar.xz"
+        }                                                                 
       }
     },
     {

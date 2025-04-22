@@ -1836,6 +1836,7 @@
                 "rubygem-rspec-expectations",
                 "rubygem-rspec-mocks",
                 "rubygem-rspec-support",
+                "rubygem-sys-filesystem",
                 "rubygem-thread_order",
                 "rusers",
                 "samba",
@@ -2057,6 +2058,7 @@
                 "zerofree",
                 "zfs-fuse",
                 "zipper",
+                "zix",
                 "zopfli",
                 "zziplib"
             ]
